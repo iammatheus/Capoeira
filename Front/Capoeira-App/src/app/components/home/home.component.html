@@ -1,0 +1,68 @@
+<div class="video">
+  <div class="overlay">
+    <h1 class="text-center">Bem-vindo ao FECARJ - Projeto de Capoeira</h1>
+  </div>
+  <video autoplay loop>
+    <source src="./assets/file.mp4" type="video/mp4">
+    Seu navegador não suporta esse tipo de vídeo.
+  </video>
+</div>
+
+<div class="atividades-eventos mt-5">
+  <app-titulo-container [titulo]="'Próximas atividades'"></app-titulo-container>
+
+  <div class="container d-flex justify-content-center">
+    <div class="container-wraper">
+      <div class="slide" #slide>
+        <div class="imageSlide current-item" id="itemAs" *ngFor="let item of eventos">
+          <img
+            [src]="mostraImagem(item.imagemUrl)"
+            (change)="setImagemSlide(item)"
+            class="item">
+          <h4>{{item.tema}}</h4>
+          <p class="texto-evento">{{item.local}}</p>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="arrow-left setaLeft control" type="button" (click)="prev($event)">
+          <i class="fa fa-arrow-left arrow setaLeft"></i>
+        </button>
+        <button class="arrow-right setaRight control" type="button" (click)="prev($event)">
+          <i class="fa fa-arrow-right arrow setaRight"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="img-back mt-5">
+  <div class="divisao w-50">
+    <div class="quem-somos">
+      <div class="w-50"></div>
+      <div class="descricao container">
+        <app-titulo-container [titulo]="'Quem somos'"></app-titulo-container>
+        <p>
+          Sobre a FECARJ UM BREVE HISTÓRICO Fundada em 2014 e com a gestão atual, presidida por Mestre Garnisé, a FECARJ vem com um olhar de reorganização e resgate históricocultural da Capoeira do Rio de Janeiro. Buscando a qualificação e profissionalização de capoeiristas para uma atuação sustentável dentro da Capoeira.
+          <br>
+          <br>
+
+          <b>MISSÃO</b>
+          <br>
+
+          Promover, com excelência e em parceria com os seus filiados e apoiadores, a Capoeira no Rio de Janeiro, contribuindo para a formação e desenvolvimento de capoeiristas.
+
+          <br>
+          <br>
+          <b>VISÃO</b>
+          <br>
+
+
+          Ser uma instituição inovadora e destacada na promoção da capoeira, com uma gestão participativa, transparente e sustentável junto a seus filiados
+          <br><br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
