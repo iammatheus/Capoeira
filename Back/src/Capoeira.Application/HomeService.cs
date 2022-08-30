@@ -29,10 +29,26 @@ namespace Capoeira.Application
         {
             try
             {
-                var evento = await _homePersist.GetAllEventosHomeAsync();
-                if (evento == null) return null;
+                var eventos = await _homePersist.GetAllEventosHomeAsync();
+                if (eventos == null) return null;
 
-                var resultado = _mapper.Map<EventoDto[]>(evento);
+                var resultado = _mapper.Map<EventoDto[]>(eventos);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public async Task<MestreDto[]> GetMestresHomeAsync()
+        {
+            try
+            {
+                var mestres = await _homePersist.GetAllMestresHomeAsync();
+                if (mestres == null) return null;
+
+                var resultado = _mapper.Map<MestreDto[]>(mestres);
 
                 return resultado;
             }

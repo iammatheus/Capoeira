@@ -81,10 +81,12 @@ namespace Capoeira.API
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IMestreService, MestreService>();
 
             services.AddScoped<IHomePersist, HomePersist>();
             services.AddScoped<IGeralPersist, GeralPersist>();
             services.AddScoped<IEventoPersist, EventoPersist>();
+            services.AddScoped<IMestrePersist, MestrePersist>();
             services.AddScoped<IUserPersist, UserPersist>();
 
             services.AddCors();
