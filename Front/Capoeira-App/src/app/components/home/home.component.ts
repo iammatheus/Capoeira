@@ -1,10 +1,11 @@
 import { Mestre } from './../../models/Mestre';
 import { environment } from 'src/environments/environment.prod';
 import { HomeService } from './../../services/home.service';
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Evento } from '@app/models/Evento';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { CarrouselComponent } from '@app/shared/carrousel/carrousel.component';
 
 
 @Component({
@@ -12,25 +13,24 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends CarrouselComponent implements OnInit {
 
   public eventos: Evento[] = [];
   public mestres: Mestre[] = [];
 
-  public largImg = 100;
-  public altImg = 75;
-  public margemImg = 2;
-  public exibirImg = true;
+  @ViewChild("carrousel") carrousel: CarrouselComponent;
+
   public dado: any;
   public loading: any;
   public dadoSelecionado: any;
+  public id = '';
 
   constructor(
     private homeService: HomeService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private element: ElementRef
-  ) { }
+    public element: ElementRef
+  ) { super(element) }
 
   ngOnInit(): void {
     this.carregaEventos();

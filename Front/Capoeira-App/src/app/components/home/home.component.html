@@ -8,32 +8,13 @@
   </video>
 </div>
 
-<div class="atividades-eventos mt-5">
-  <app-titulo-container [titulo]="'Próximas atividades'"></app-titulo-container>
-
-  <div class="container d-flex justify-content-center">
-    <div class="container-wraper">
-      <div class="slide" #slide>
-        <div class="imageSlide current-item" id="itemAs" *ngFor="let item of eventos">
-          <img
-            [src]="mostraImagem(item.imagemUrl)"
-            (change)="setImagemSlide(item)"
-            class="item">
-          <h4>{{item.tema}}</h4>
-          <p class="texto-evento">{{item.local}}</p>
-        </div>
-      </div>
-      <div class="buttons">
-        <button class="arrow-left setaLeft control" type="button" (click)="prev($event, '#itemAs', eventos)">
-          <i class="fa fa-arrow-left arrow setaLeft"></i>
-        </button>
-        <button class="arrow-right setaRight control" type="button" (click)="prev($event, '#itemAs', eventos)">
-          <i class="fa fa-arrow-right arrow setaRight"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-carrousel
+  #carrousel
+  titulo="Próximas atividades"
+  [itens]="eventos"
+  id="eventos"
+  >
+</app-carrousel>
 
 <div class="img-back mt-5">
   <div class="divisao w-50">
@@ -67,30 +48,10 @@
 
 <br><br><br><br>
 
-
-<div class="atividades-eventos mt-5">
-  <app-titulo-container [titulo]="'Nossos Mestres'"></app-titulo-container>
-
-  <div class="container d-flex justify-content-center">
-    <div class="container-wraper">
-      <div class="slide" #slide>
-        <div class="imageSlide current-item" id="mestres" *ngFor="let item of mestres">
-          <img
-            [src]="mostraImagem(item.imagemUrl)"
-            (change)="setImagemSlide(item)"
-            class="item">
-          <h4>{{item.nome}}</h4>
-          <p class="texto-evento">{{item.descricao}}</p>
-        </div>
-      </div>
-      <div class="buttons">
-        <button class="arrow-left setaLeft control" type="button" (click)="prev($event, '#mestres', mestres)">
-          <i class="fa fa-arrow-left arrow setaLeft"></i>
-        </button>
-        <button class="arrow-right setaRight control" type="button" (click)="prev($event, '#mestres', mestres)">
-          <i class="fa fa-arrow-right arrow setaRight"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-carrousel
+  #carrousel
+  titulo="Nossos Mestres"
+  [itens]="mestres"
+  id="mestres"
+  >
+</app-carrousel>
