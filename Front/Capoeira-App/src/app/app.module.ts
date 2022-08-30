@@ -24,6 +24,7 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { CarrouselComponent } from './shared/carrousel/carrousel.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
 import { TituloContainerComponent } from './shared/titulo-container/titulo-container.component';
 import { EventoDetalheComponent } from './components/eventos/evento-detalhe/evento-detalhe.component';
@@ -62,7 +63,8 @@ defineLocale('pt-br', ptBrLocale);
     HomeComponent,
     MestresComponent,
     MestreDetalheComponent,
-    MestreListaComponent
+    MestreListaComponent,
+    CarrouselComponent
    ],
   imports: [
     BrowserModule,
