@@ -1,3 +1,4 @@
+import { Mestre } from './../../models/Mestre';
 import { environment } from 'src/environments/environment.prod';
 import { HomeService } from './../../services/home.service';
 import { Component, ElementRef, OnInit } from '@angular/core';
@@ -14,6 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
 
   public eventos: Evento[] = [];
+  public mestres: Mestre[] = [];
+
   public largImg = 100;
   public altImg = 75;
   public margemImg = 2;
@@ -31,6 +34,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregaEventos();
+    this.carregaMestres();
   }
 
   public carregaEventos(): void {
@@ -48,6 +52,21 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  public carregaMestres(): void {
+    this.spinner.show();
+    this.homeService.getMestres()
+    .subscribe((mestres: Mestre[])=> {
+      this.mestres = mestres;
+     },
+     error => {
+      this.spinner.hide();
+      this.toastr.error('Erro ao carregar os mestres.', 'Erro!')
+      console.error(error);
+    },
+    () => this.spinner.hide()
+    )
+  }
+
   public mostraImagem(imagemURL: string): string {
     return (imagemURL !== '')
     ? `${environment.apiURL}resources/images/${imagemURL}`
@@ -59,8 +78,8 @@ export class HomeComponent implements OnInit {
   }
 
   currentItem = -1;
-  prev($event: any){
-    const elements = this.element.nativeElement.querySelectorAll("#itemAs");
+  prev($event: any, idContainer: string, arrayItems: any){
+    const elements = this.element.nativeElement.querySelectorAll(idContainer);
     let isArrow = $event.target.classList.contains("setaLeft");
     if(isArrow){
       this.currentItem -= 1;
@@ -68,14 +87,14 @@ export class HomeComponent implements OnInit {
       this.currentItem += 1;
     }
 
-    if(this.currentItem >= this.eventos.length){
+    if(this.currentItem >= arrayItems.length){
       this.currentItem = 0;
     }
 
     if (this.currentItem < 0) {
-      this.currentItem = this.eventos.length - 1;
+      this.currentItem = arrayItems.length - 1;
     }
-    this.setImagemSlide(this.eventos[this.currentItem]);
+    this.setImagemSlide(arrayItems[this.currentItem]);
 
     elements.forEach((item: any) => item.classList.remove("current-item"));
 
@@ -87,3 +106,5 @@ export class HomeComponent implements OnInit {
     elements[this.currentItem].classList.add("current-item");
   };
 }
+
+

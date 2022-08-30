@@ -15,8 +15,7 @@ namespace Capoeira.Application.Dtos
         StringLength(50, MinimumLength = 3, ErrorMessage = "Insira de 3 a 50 caracteres.")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório."),
-        StringLength(500, MinimumLength = 3, ErrorMessage = "Insira de 3 a 50 caracteres.")]
+        [StringLength(500, MinimumLength = 0, ErrorMessage = "Insira de 3 a 50 caracteres.")]
         public string Descricao { get; set; }
 
         [RegularExpression(@".*\.(gif|jpe?g|bmp|png)$", ErrorMessage = "Imagem inválida. Experimente formatos: gif, jpg, jpeg, bmp ou png.")]

@@ -131,7 +131,7 @@ namespace Capoeira.API.Controllers
                     mestre.ImagemUrl = await SaveImage(file);
                 }
     
-                //var MestreRetorno = await _mestreService.UpdateMestre(User.GetUserId(), mestreId, mestre);
+                var MestreRetorno = await _mestreService.UpdateMestre(User.GetUserId(), mestreId, mestre);
     
                 return Ok(mestre);
             }

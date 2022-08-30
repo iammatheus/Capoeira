@@ -1,3 +1,4 @@
+import { Mestre } from './../models/Mestre';
 import { environment } from 'src/environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,9 +10,14 @@ import { Evento } from '../models/Evento';
 })
 export class HomeService {
   baseURL = `${environment.apiURL}api/home`;
+
   constructor(private http: HttpClient) { }
 
   public getEventos(): Observable<Evento[]>{
-    return this.http.get<Evento[]>(this.baseURL);
+    return this.http.get<Evento[]>(`${this.baseURL}/eventos`);
+  }
+
+  public getMestres(): Observable<Mestre[]>{
+    return this.http.get<Mestre[]>(`${this.baseURL}/mestres`);
   }
 }

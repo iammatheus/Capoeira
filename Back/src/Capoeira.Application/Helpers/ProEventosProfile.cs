@@ -10,6 +10,7 @@ namespace Capoeira.API.Helpers
         public CapoeiraProfile()
         {
             CreateMap<Evento, EventoDto>().ReverseMap();
+            CreateMap<Mestre, MestreDto>().ReverseMap();
 
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserLoginDto>().ReverseMap();

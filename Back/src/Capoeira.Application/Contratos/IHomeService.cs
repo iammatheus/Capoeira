@@ -6,5 +6,6 @@ namespace Capoeira.Application.Contratos
     public interface IHomeService
     {
         Task<EventoDto[]> GetEventosHomeAsync();
+        Task<MestreDto[]> GetMestresHomeAsync();
     }
 }

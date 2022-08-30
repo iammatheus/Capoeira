@@ -1,5 +1,6 @@
 ﻿using Capoeira.Domain;
 using Capoeira.Persistence.Contextos;
+using Capoeira.Persistence.Contratos;
 using Capoeira.Persistence.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Capoeira.Persistence
 {
-    public class MestrePersist
+    public class MestrePersist : IMestrePersist
     {
         public readonly CapoeiraContext _context;
         public MestrePersist(CapoeiraContext context)
@@ -15,7 +16,7 @@ namespace Capoeira.Persistence
             _context = context;
         }
 
-        public async Task<PageList<Mestre>> GetAllMestreAsync(int userId, PageParams pageParams)
+        public async Task<PageList<Mestre>> GetAllMestresAsync(int userId, PageParams pageParams)
         {
             IQueryable<Mestre> query = _context.Mestres;
 

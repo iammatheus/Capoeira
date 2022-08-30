@@ -13,6 +13,9 @@ import { PerfilComponent } from './components/user/perfil/perfil.component';
 import { ContatosComponent } from './components/contatos/contatos.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import { MestresComponent } from './components/mestres/mestres.component';
+import { MestreDetalheComponent } from './components/mestres/mestre-detalhe/mestre-detalhe.component';
+import { MestreListaComponent } from './components/mestres/mestre-lista/mestre-lista.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -32,6 +35,15 @@ const routes: Routes = [
           { path: 'detalhe/:id', component: EventoDetalheComponent },
           { path: 'detalhe', component: EventoDetalheComponent },
           { path: 'lista', component: EventoListaComponent }
+        ]
+      },
+      { path: 'mestres', redirectTo: 'mestres/lista' },
+      {
+        path: 'mestres', component: MestresComponent,
+        children: [
+          { path: 'detalhe/:id', component: MestreDetalheComponent },
+          { path: 'detalhe', component: MestreDetalheComponent },
+          { path: 'lista', component: MestreListaComponent }
         ]
       },
 

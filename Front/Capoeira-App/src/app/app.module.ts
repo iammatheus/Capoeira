@@ -1,3 +1,4 @@
+import { MestresComponent } from './components/mestres/mestres.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -38,6 +39,9 @@ import { AccountService } from './services/account.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { MestreService } from './services/mestre.service';
+import { MestreDetalheComponent } from './components/mestres/mestre-detalhe/mestre-detalhe.component';
+import { MestreListaComponent } from './components/mestres/mestre-lista/mestre-lista.component';
 
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
@@ -56,6 +60,9 @@ defineLocale('pt-br', ptBrLocale);
     LoginComponent,
     RegistrationComponent,
     HomeComponent,
+    MestresComponent,
+    MestreDetalheComponent,
+    MestreListaComponent
    ],
   imports: [
     BrowserModule,
@@ -82,6 +89,7 @@ defineLocale('pt-br', ptBrLocale);
   providers: [
     EventoService,
     AccountService,
+    MestreService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],

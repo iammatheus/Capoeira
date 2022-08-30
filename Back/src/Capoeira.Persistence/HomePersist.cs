@@ -25,5 +25,15 @@ namespace Capoeira.Persistence
 
             return await query.ToArrayAsync();
         }
+
+        public async Task<Mestre[]> GetAllMestresHomeAsync()
+        {
+            IQueryable<Mestre> query = _context.Mestres;
+
+            query = query.AsNoTracking()
+                .OrderBy(e => e.Id);
+
+            return await query.ToArrayAsync();
+        }
     }
 }
