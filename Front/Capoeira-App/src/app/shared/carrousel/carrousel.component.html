@@ -1,24 +1,23 @@
 <div class="atividades-eventos mt-5">
   <app-titulo-container [titulo]="titulo"></app-titulo-container>
-
   <div class="container d-flex justify-content-center">
     <div class="container-wraper">
       <div class="slide" #slide>
-        <div class="imageSlide current-item" id="id" *ngFor="let item of itens">
+        <div class="imageSlide current-item" id="{{idContainer}}" *ngFor="let item of itens">
           <img
             [src]="mostraImagem(item.imagemUrl)"
             (change)="setImagemSlide(item)"
             class="item">
           <small class="text-left" *ngIf="item.dataEvento">Data: {{item.dataEvento}}</small>
-          <h4>{{item.tema}}</h4>
-          <p class="texto">{{item.local}}</p>
+          <h4>{{item.nome}}</h4>
+          <p class="texto">{{item.descricao}}</p>
         </div>
       </div>
       <div class="buttons">
-        <button class="arrow-left setaLeft control" type="button" (click)="prev($event, '#id', itens)">
+        <button class="arrow-left setaLeft control" type="button" (click)="prev($event, itens)">
           <i class="fa fa-arrow-left arrow setaLeft"></i>
         </button>
-        <button class="arrow-right control" type="button" (click)="prev($event, '#id', itens)">
+        <button class="arrow-right control" type="button" (click)="prev($event, itens)">
           <i class="fa fa-arrow-right arrow"></i>
         </button>
       </div>

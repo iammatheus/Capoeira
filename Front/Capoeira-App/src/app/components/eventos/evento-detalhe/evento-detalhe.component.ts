@@ -86,7 +86,8 @@ export class EventoDetalheComponent implements OnInit {
 
   public validation(): void {
     this.form = this.fb.group({
-      tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      descricao: [''],
       local: ['', [Validators.required]],
       dataEvento: ['', [Validators.required]],
       qtdPessoas: ['', [Validators.required, Validators.max(120000)]],
@@ -117,6 +118,7 @@ export class EventoDetalheComponent implements OnInit {
         (error: any) => {
           this.spinner.hide();
           this.toastr.error('Erro ao salvar evento.', 'Erro!');
+          console.error(error)
         },
         () => this.spinner.hide(),
       );
@@ -136,13 +138,11 @@ export class EventoDetalheComponent implements OnInit {
 
   uploadImagem(): void {
     this.spinner.show();
-    console.log('teste')
     this.eventoService.postUpload(this.eventoId, this.file)
       .subscribe(
         (res) => {
           this. carregarEvento();
           this.toastr.success('Imagem alterada com sucesso!', 'Sucesso!');
-          console.log('teste porra', res)
 
         },
         (error) => {

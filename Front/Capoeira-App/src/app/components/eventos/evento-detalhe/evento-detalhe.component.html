@@ -6,14 +6,14 @@
           <div class="p-3">
             <div class="form-row">
               <div class="form-group col-md-12">
-                <label>Tema</label>
-                <input type="text" class="form-control" [ngClass]="cssValidator(controls.tema)" formControlName="tema"
-                  placeholder="Insira o tema" [(ngModel)]="evento.tema">
-                <div *ngIf="controls.tema.errors?.required" class="invalid-feedback">Tema é obrigatório.</div>
-                <div *ngIf="controls.tema.errors?.minlength" class="invalid-feedback">Tema deve conter no mínimo 4
+                <label>Nome</label>
+                <input type="text" class="form-control" [ngClass]="cssValidator(controls.nome)" formControlName="nome"
+                  placeholder="Insira o nome" [(ngModel)]="evento.nome">
+                <div *ngIf="controls.nome.errors?.required" class="invalid-feedback">Nome é obrigatório.</div>
+                <div *ngIf="controls.nome.errors?.minlength" class="invalid-feedback">Nome deve conter no mínimo 4
                   caracteres.
                 </div>
-                <div *ngIf="controls.tema.errors?.maxlength" class="invalid-feedback">Tema deve conter no máximo 50
+                <div *ngIf="controls.nome.errors?.maxlength" class="invalid-feedback">Nome deve conter no máximo 50
                   caracteres.</div>
               </div>
             </div>
@@ -30,6 +30,18 @@
                   formControlName="dataEvento" placeholder="Insira a data e hora" [(ngModel)]="evento.dataEvento" bsDatepicker [bsConfig]="bsConfig">
                 <div *ngIf="controls.dataEvento.errors?.required" class="invalid-feedback">Data e Hora é obrigatório!
                 </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Descricao</label>
+                  <textarea class="form-control"
+                    [ngClass]="cssValidator(controls.descricao)"
+                    formControlName="descricao"
+                    placeholder="Insira a descrição"
+                    [(ngModel)]="evento.descricao"
+                    cols="30"
+                    rows="5"></textarea>
               </div>
             </div>
             <div class="form-row">
@@ -89,7 +101,7 @@
               tooltip="Uplaod de Nova Imagem" [adaptivePosition]="false" placement="bottom" />
           </div>
           <div class="card-body pt-3">
-            <h4>{{evento.tema}}</h4>
+            <h4>{{evento.nome}}</h4>
             <p class="card-text">
               <b>Local:</b> {{evento.local}}
               <br>
