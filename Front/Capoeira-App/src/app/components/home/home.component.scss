@@ -43,3 +43,49 @@ video {
 .divisao{
   background-color: #f8f9fa;
 }
+
+//footer
+footer{
+  background-color: #edcd03;
+  padding: 15px 0;
+  .facebook{
+    margin-bottom: 5px;
+  }
+  .sociais{
+    display: flex;
+    align-items: center;
+    a{
+      margin-right: 4px;
+    }
+    i{
+      font-size: 20px;
+    }
+    :hover {
+      i {
+        transition: .3s;
+        transform: scale(1.1);
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+    i {
+      font-size: 30px;
+    }
+  }
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .desenvolvedor{
+    :hover{
+      text-decoration: underline;
+    }
+  }
+  img{
+    width: 110px;
+  }
+}

@@ -6,7 +6,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Filtrar tema e local"
+          placeholder="Filtrar nome e local"
           (input)="filtrarEventos($event.target)">
       </div>
     </div>
@@ -28,7 +28,7 @@
           </button>
         </th>
         <th>#</th>
-        <th>Tema</th>
+        <th>Nome</th>
         <th class="d-none d-md-table-cell">Local</th>
         <th>Data</th>
         <th class="d-none d-md-table-cell">Participantes</th>
@@ -48,7 +48,7 @@
             [style.margin.px]="margemImg">
         </td>
         <td>{{ evento.id }}</td>
-        <td>{{ evento.tema }}</td>
+        <td>{{ evento.nome }}</td>
         <td class="d-none d-md-table-cell">{{ evento.local }}</td>
         <td>{{ evento.dataEvento }}</td>
         <td class="d-none d-md-table-cell">{{ evento.qtdPessoas }}</td>

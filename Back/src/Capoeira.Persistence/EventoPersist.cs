@@ -21,7 +21,7 @@ namespace Capoeira.Persistence
             IQueryable<Evento> query = _context.Eventos;
 
             query = query.AsNoTracking()
-                .Where(e => (e.Tema.ToLower().Contains(pageParams.Term.ToLower()) || 
+                .Where(e => (e.Nome.ToLower().Contains(pageParams.Term.ToLower()) || 
                              e.Local.ToLower().Contains(pageParams.Term.ToLower())) &&  
                              e.UserId == userId)
                 .OrderBy(e => e.Id);

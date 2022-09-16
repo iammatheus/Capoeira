@@ -11,7 +11,7 @@ export class CarrouselComponent implements OnInit {
   @Input() titulo: string;
   @Input() itens: any;
   @Input() dadoSelecionado: any;
-  @Input() id: any;
+  @Input() idContainer: any;
 
   constructor(
     public element: ElementRef
@@ -31,9 +31,10 @@ export class CarrouselComponent implements OnInit {
   }
 
   currentItem = -1;
-  public prev($event: any, idContainer: string, arrayItems: any){
-    const elements = this.element.nativeElement.querySelectorAll(idContainer);
-    let isArrow = $event.target.classList.contains("setaLeft");
+  public prev($event: any, arrayItems: any){
+    const elements = this.element.nativeElement.querySelectorAll(`${'#'+this.idContainer.toString()}`);
+    const isArrow = $event.target.classList.contains("setaLeft");
+
     if(isArrow){
       this.currentItem -= 1;
     }else {
@@ -50,7 +51,6 @@ export class CarrouselComponent implements OnInit {
     this.setImagemSlide(arrayItems[this.currentItem]);
 
     elements.forEach((item: any) => item.classList.remove("current-item"));
-
     elements[this.currentItem].scrollIntoView({
       behavior: "smooth",
       inline: "center",
@@ -58,5 +58,4 @@ export class CarrouselComponent implements OnInit {
     });
     elements[this.currentItem].classList.add("current-item");
   };
-
 }
