@@ -1,26 +1,28 @@
-<div class="atividades-eventos mt-5">
-  <app-titulo-container [titulo]="titulo"></app-titulo-container>
-  <div class="container d-flex justify-content-center">
-    <div class="container-wraper">
-      <div class="slide" #slide>
-        <div class="imageSlide current-item" id="{{idContainer}}" *ngFor="let item of itens">
-          <img
-            [src]="mostraImagem(item.imagemUrl)"
-            (change)="setImagemSlide(item)"
-            class="item">
-          <small class="text-left" *ngIf="item.dataEvento">Data: {{item.dataEvento}}</small>
-          <h4>{{item.nome}}</h4>
-          <p class="texto">{{item.descricao}}</p>
+<app-titulo-container [titulo]="titulo"></app-titulo-container>
+<div class="container carousel mt-4">
+  <swiper [pagination]="{ dynamicBullets: true }" [navigation]="true" class="mySwiper2 mySwiperDimension">
+    <ng-template swiperSlide class="swiper-slide-2" *ngFor="let item of itens">
+      <div class="img-mestre">
+        <img [src]="mostraImagem(item.imagemUrl)" alt="">
+      </div>
+      <div class="info">
+        <h3>{{item.nome}}</h3>
+        <p>{{item.descricao}}</p>
+        <div class="socials">
+          <div class="facebook">
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <span> @testedearroba</span>
+          </div>
+          <div class="instagram">
+            <a href="#" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <span> @testedearroba_</span>
+          </div>
         </div>
       </div>
-      <div class="buttons">
-        <button class="arrow-left setaLeft control" type="button" (click)="prev($event, itens)">
-          <i class="fa fa-arrow-left arrow setaLeft"></i>
-        </button>
-        <button class="arrow-right control" type="button" (click)="prev($event, itens)">
-          <i class="fa fa-arrow-right arrow"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+    </ng-template>
+  </swiper>
 </div>

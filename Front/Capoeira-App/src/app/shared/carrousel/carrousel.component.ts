@@ -1,21 +1,22 @@
 import { environment } from './../../../environments/environment.prod';
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+
+import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
+SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 @Component({
   selector: 'app-carrousel',
   templateUrl: './carrousel.component.html',
-  styleUrls: ['./carrousel.component.scss']
+  styleUrls: ['./carrousel.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CarrouselComponent implements OnInit {
 
   @Input() titulo: string;
   @Input() itens: any;
-  @Input() dadoSelecionado: any;
-  @Input() idContainer: any;
+  thumbsSwiper: any;
 
-  constructor(
-    public element: ElementRef
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -25,37 +26,4 @@ export class CarrouselComponent implements OnInit {
     ? `${environment.apiURL}resources/images/${imagemURL}`
     : 'assets/img/sem-imagem.png';
   }
-
-  public setImagemSlide(dado: any){
-    this.dadoSelecionado = dado;
-  }
-
-  currentItem = -1;
-  public prev($event: any, arrayItems: any){
-    const elements = this.element.nativeElement.querySelectorAll(`${'#'+this.idContainer.toString()}`);
-    const isArrow = $event.target.classList.contains("setaLeft");
-
-    if(isArrow){
-      this.currentItem -= 1;
-    }else {
-      this.currentItem += 1;
-    }
-
-    if(this.currentItem >= arrayItems.length){
-      this.currentItem = 0;
-    }
-
-    if (this.currentItem < 0) {
-      this.currentItem = arrayItems.length - 1;
-    }
-    this.setImagemSlide(arrayItems[this.currentItem]);
-
-    elements.forEach((item: any) => item.classList.remove("current-item"));
-    elements[this.currentItem].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "center"
-    });
-    elements[this.currentItem].classList.add("current-item");
-  };
 }

@@ -1,19 +1,23 @@
 import { Mestre } from './../../models/Mestre';
 import { HomeService } from './../../services/home.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Evento } from '@app/models/Evento';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-
+import { environment } from './../../../environments/environment.prod';
+import SwiperCore, { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
+SwiperCore.use([FreeMode, Navigation, Thumbs, Pagination]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 
   public eventos: Evento[] = [];
   public mestres: Mestre[] = [];
+  thumbsSwiper: any;
 
   constructor(
     private homeService: HomeService,
@@ -24,6 +28,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.carregaEventos();
     this.carregaMestres();
+  }
+
+  public mostraImagem(imagemURL: string): string {
+    return (imagemURL !== '')
+    ? `${environment.apiURL}resources/images/${imagemURL}`
+    : 'assets/img/sem-imagem.png';
   }
 
   public carregaEventos(): void {

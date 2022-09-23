@@ -15,7 +15,7 @@ namespace Capoeira.Application.Dtos
         [Display(Name = "Qtd Pessoas"),
         Range(1, 120000, ErrorMessage = "{0} não pode ser menor que 1 e maior que 120.000,00")]
         public int QtdPessoas { get; set; }
-        [RegularExpression(@".*\.(gif|jpe?g|bmp|png)$", ErrorMessage = "Imagem inválida. Experimente formatos: gif, jpg, jpeg, bmp ou png.")]
+        [RegularExpression(@".*\.(jpe?g|png)$", ErrorMessage = "Imagem inválida. Experimente formatos: jpg, jpeg ou png.")]
         public string ImagemUrl { get; set; }
         [Required(ErrorMessage = "O campo {0} é obrigatório."),
         Phone(ErrorMessage = "O campo {0} está com número inválido.")]

@@ -12,7 +12,7 @@ using Capoeira.Application.Dtos;
 using Capoeira.Persistence.Models;
 
 namespace Capoeira.API.Controllers
-{   
+{
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
@@ -23,15 +23,14 @@ namespace Capoeira.API.Controllers
 
         public EventosController(
             IEventoService eventoService,
-            IWebHostEnvironment hostEnvironment,
-            IAccountService accountService)
+            IWebHostEnvironment hostEnvironment)
         {
             _hostEnvironment = hostEnvironment;
             _eventoService = eventoService;
 
         }
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]PageParams pageParams)
+        public async Task<IActionResult> Get([FromQuery] PageParams pageParams)
         {
             try
             {
