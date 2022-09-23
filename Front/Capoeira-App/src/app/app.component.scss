@@ -292,3 +292,19 @@ svg#clouds {
     visibility: hidden;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .mySwiper2 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mySwiper2 {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .mySwiper2 {
+    height: auto;
+  }
+}

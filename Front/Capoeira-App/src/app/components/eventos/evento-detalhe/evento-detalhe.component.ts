@@ -125,15 +125,26 @@ export class EventoDetalheComponent implements OnInit {
     }
   }
 
+  imageFile(str: string): boolean {
+    const regex = /.*\.(jpe?g|png)$/g;
+
+    if(regex.test(str)) return true;
+
+    return false;
+  }
+
   onFileChange(ev: any): void{
     const reader = new FileReader();
-
-    reader.onload = (event: any) => this.imagemURL = event.target.result;
 
     this.file = ev.target.files;
     reader.readAsDataURL(this.file[0]);
 
-    this.uploadImagem();
+    if(this.imageFile(this.file[0].name)){
+      this.uploadImagem();
+      reader.onload = (event: any) => this.imagemURL = event.target.result;
+    }else {
+      this.toastr.warning('Tente: png, jpg ou jpeg.', 'Formato inválido!');
+    }
   }
 
   uploadImagem(): void {
@@ -143,7 +154,6 @@ export class EventoDetalheComponent implements OnInit {
         (res) => {
           this. carregarEvento();
           this.toastr.success('Imagem alterada com sucesso!', 'Sucesso!');
-
         },
         (error) => {
           this.toastr.error('Erro ao alterar imagem. Tente novamente!', 'Erro!');

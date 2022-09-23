@@ -44,6 +44,8 @@ import { MestreService } from './services/mestre.service';
 import { MestreDetalheComponent } from './components/mestres/mestre-detalhe/mestre-detalhe.component';
 import { MestreListaComponent } from './components/mestres/mestre-lista/mestre-lista.component';
 
+import { SwiperModule } from 'swiper/angular';
+
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ defineLocale('pt-br', ptBrLocale);
     MestresComponent,
     MestreDetalheComponent,
     MestreListaComponent,
-    CarrouselComponent
+    CarrouselComponent,
    ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ defineLocale('pt-br', ptBrLocale);
     }),
     FormsModule,
     ReactiveFormsModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    SwiperModule
   ],
   providers: [
     EventoService,
