@@ -176,9 +176,22 @@ body {
   object-fit: cover;
 }
 
-@media screen and (max-width: 991px) {
+.filial{
+  > div {
+    margin: 10px;
+    > img {
+      width: 165px;
+      height: 165px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
   .mySwiper2 {
     width: 100%;
+  }
+  .filial {
+    justify-content: center !important;
   }
 }
 @media screen and (max-width: 768px) {
@@ -196,8 +209,13 @@ body {
     width: 100%;
     padding: 0 !important;
     p {
-    padding: 0 20px;
-
+      padding: 0 20px;
+    }
+  }
+  .contatos{
+      display: block !important;
+    div {
+      margin-bottom: 20px;
     }
   }
 }
@@ -206,3 +224,10 @@ body {
     height: auto;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .mySwiper{
+    display: none;
+  }
+}
+

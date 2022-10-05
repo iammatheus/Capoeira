@@ -9,8 +9,8 @@
   </video>
 </div>
 
-<div class="container carousel">
-  <app-titulo-container [titulo]="'Eventos'"></app-titulo-container>
+<div class="container carousel mt-4">
+  <app-titulo-container [titulo]="'Eventos & Atividades'"></app-titulo-container>
   <swiper
     style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
     [spaceBetween]="10"
@@ -36,15 +36,15 @@
   </swiper>
 </div>
 
-<div class="img-back mt-5">
+<div class="img-back mt-5 mb-5">
   <div class="divisao w-50">
     <div class="quem-somos">
       <div class="w-50 div-none"></div>
       <div class="descricao container">
         <app-titulo-container [titulo]="'Quem somos'"></app-titulo-container>
         <p>
-          Sobre a FECARJ UM BREVE HISTÓRICO Fundada em 2014 e com a gestão atual, presidida por Mestre Garnisé, a FECARJ
-          vem com um olhar de reorganização e resgate históricocultural da Capoeira do Rio de Janeiro. Buscando a
+          Fundada em 2014 e com a gestão atual, presidida por Mestre Garnisé, a FECARJ
+          vem com um olhar de reorganização e resgate histórico cultural da Capoeira do Rio de Janeiro. Buscando a
           qualificação e profissionalização de capoeiristas para uma atuação sustentável dentro da Capoeira.
           <br>
           <br>
@@ -62,7 +62,7 @@
 
 
           Ser uma instituição inovadora e destacada na promoção da capoeira, com uma gestão participativa, transparente
-          e sustentável junto a seus filiados
+          e sustentável junto a seus filiados.
           <br><br>
         </p>
       </div>
@@ -72,10 +72,25 @@
 
 <app-carrousel
   [itens]="mestres"
-  [titulo]="'Mestres'"
+  [titulo]="'Diretoria Executiva'"
 ></app-carrousel>
 
-<div class="container mt-4">
+<div class="container mt-5 mb-5">
+  <app-titulo-container [titulo]="'Nossos parceiros'"></app-titulo-container>
+  <div class="d-flex justify-content-start filial flex-wrap">
+    <div>
+      <img src="/assets/fotoData.jpeg" alt="">
+    </div>
+  </div>
+</div>
+
+<app-carrousel
+  [itens]="mestres"
+  [id]="2"
+  [titulo]="'Diretoria de Núcleos'"
+></app-carrousel>
+
+<div class="container mt-5">
   <app-titulo-container [titulo]="'Contatos'"></app-titulo-container>
   <h5 class="text-center">Para qualquer informação, dúvida ou comentário, <br>por favor, ligue ou nos mande uma
     mensagem!</h5>

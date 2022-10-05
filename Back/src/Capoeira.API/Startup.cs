@@ -82,12 +82,14 @@ namespace Capoeira.API
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IMestreService, MestreService>();
+            services.AddScoped<IFiliadoService, FiliadoService>();
 
             services.AddScoped<IHomePersist, HomePersist>();
             services.AddScoped<IGeralPersist, GeralPersist>();
             services.AddScoped<IEventoPersist, EventoPersist>();
             services.AddScoped<IMestrePersist, MestrePersist>();
             services.AddScoped<IUserPersist, UserPersist>();
+            services.AddScoped<IFiliadoPersist, FiliadoPersist>();
 
             services.AddCors();
             services.AddSwaggerGen(options =>
