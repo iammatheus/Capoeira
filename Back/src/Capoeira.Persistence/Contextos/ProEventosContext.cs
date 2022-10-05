@@ -14,6 +14,7 @@ namespace Capoeira.Persistence.Contextos
         
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Mestre> Mestres {get; set; }
+        public DbSet<Filiado> Filiados {get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,7 @@ namespace Capoeira.Persistence.Contextos
 
             modelBuilder.Entity<Evento>();
             modelBuilder.Entity<Mestre>();
+            modelBuilder.Entity<Filiado>();
         }
     }
 }

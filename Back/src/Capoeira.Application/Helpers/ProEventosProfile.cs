@@ -11,6 +11,7 @@ namespace Capoeira.API.Helpers
         {
             CreateMap<Evento, EventoDto>().ReverseMap();
             CreateMap<Mestre, MestreDto>().ReverseMap();
+            CreateMap<Filiado, FiliadoDto>().ReverseMap();
 
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserLoginDto>().ReverseMap();

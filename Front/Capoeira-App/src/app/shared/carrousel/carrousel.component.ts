@@ -14,16 +14,20 @@ export class CarrouselComponent implements OnInit {
 
   @Input() titulo: string;
   @Input() itens: any;
+  @Input() id?: number;
   thumbsSwiper: any;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   public mostraImagem(imagemURL: string): string {
     return (imagemURL !== '')
     ? `${environment.apiURL}resources/images/${imagemURL}`
     : 'assets/img/sem-imagem.png';
+  }
+
+  addClassFlexRowReverse(){
+    return this.id ? 'flex-row-reverse' : '';
   }
 }
