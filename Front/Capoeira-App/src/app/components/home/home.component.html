@@ -78,15 +78,14 @@
 <div class="container mt-5 mb-5">
   <app-titulo-container [titulo]="'Nossos parceiros'"></app-titulo-container>
   <div class="d-flex justify-content-start filial flex-wrap">
-    <div>
-      <img src="/assets/fotoData.jpeg" alt="">
+    <div *ngFor="let filiado of filiados">
+      <img src="{{mostraImagem(filiado.imagemUrl)}}" />
     </div>
   </div>
 </div>
 
 <app-carrousel
   [itens]="mestres"
-  [id]="2"
   [titulo]="'Diretoria de Núcleos'"
 ></app-carrousel>
 

@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -41,26 +39,6 @@ namespace Capoeira.Application
             catch (System.Exception ex)
             {
                 throw new Exception($"Erro ao tentar verificar password. Erro: {ex.Message}");
-            }
-        }
-
-        public async Task<UserUpdateDto> CreateAccountAsync(UserDto userDto)
-        {
-            try
-            {
-                var user = _mapper.Map<User>(userDto);
-                var result = await _userManager.CreateAsync(user, userDto.Password);
-
-                if (result.Succeeded)
-                {
-                    var userToReturn = _mapper.Map<UserUpdateDto>(user);
-                    return userToReturn;
-                }
-                return null;
-            }
-            catch (System.Exception ex)
-            {
-                throw new Exception($"Erro ao tentar criar usuário. Erro: {ex.Message}");
             }
         }
 

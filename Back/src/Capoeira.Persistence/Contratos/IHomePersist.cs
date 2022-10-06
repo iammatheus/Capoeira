@@ -1,8 +1,4 @@
 ﻿using Capoeira.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Capoeira.Persistence.Contratos
@@ -11,5 +7,6 @@ namespace Capoeira.Persistence.Contratos
     {
         public Task<Evento[]> GetAllEventosHomeAsync();
         public Task<Mestre[]> GetAllMestresHomeAsync();
+        public Task<Filiado[]> GetAllFiliadosHomeAsync();
     }
 }

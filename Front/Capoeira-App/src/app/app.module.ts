@@ -21,7 +21,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './components/eventos/eventos.component';
-import { ContatosComponent } from './components/contatos/contatos.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { CarrouselComponent } from './shared/carrousel/carrousel.component';
@@ -31,7 +30,6 @@ import { EventoDetalheComponent } from './components/eventos/evento-detalhe/even
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
-import { RegistrationComponent } from './components/user/registration/registration.component';
 
 import { EventoService } from './services/evento.service';
 
@@ -45,6 +43,10 @@ import { MestreDetalheComponent } from './components/mestres/mestre-detalhe/mest
 import { MestreListaComponent } from './components/mestres/mestre-lista/mestre-lista.component';
 
 import { SwiperModule } from 'swiper/angular';
+import { FiliadosComponent } from './components/filiados/filiados.component';
+import { FiliadoDetalheComponent } from './components/filiados/filiado-detalhe/filiado-detalhe.component';
+import { FiliadoListaComponent } from './components/filiados/filiado-lista/filiado-lista.component';
+import { FiliadoService } from './services/filiado.service';
 
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
@@ -54,20 +56,21 @@ defineLocale('pt-br', ptBrLocale);
     NavComponent,
     TituloComponent,
     TituloContainerComponent,
-    ContatosComponent,
     PerfilComponent,
     DateTimeFormatPipe,
     EventoDetalheComponent,
     EventoListaComponent,
     UserComponent,
     LoginComponent,
-    RegistrationComponent,
     HomeComponent,
     MestresComponent,
     MestreDetalheComponent,
     MestreListaComponent,
     CarrouselComponent,
-   ],
+    FiliadosComponent,
+    FiliadoDetalheComponent,
+    FiliadoListaComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -95,6 +98,7 @@ defineLocale('pt-br', ptBrLocale);
     EventoService,
     AccountService,
     MestreService,
+    FiliadoService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],

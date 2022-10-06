@@ -1,3 +1,4 @@
+import { FiliadosComponent } from './components/filiados/filiados.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -7,15 +8,15 @@ import { EventosComponent } from './components/eventos/eventos.component';
 
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
-import { RegistrationComponent } from './components/user/registration/registration.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
 
-import { ContatosComponent } from './components/contatos/contatos.component';
 import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { MestresComponent } from './components/mestres/mestres.component';
 import { MestreDetalheComponent } from './components/mestres/mestre-detalhe/mestre-detalhe.component';
 import { MestreListaComponent } from './components/mestres/mestre-lista/mestre-lista.component';
+import { FiliadoDetalheComponent } from './components/filiados/filiado-detalhe/filiado-detalhe.component';
+import { FiliadoListaComponent } from './components/filiados/filiado-lista/filiado-lista.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,8 +47,15 @@ const routes: Routes = [
           { path: 'lista', component: MestreListaComponent }
         ]
       },
-
-      { path: 'contatos', component: ContatosComponent },
+      { path: 'filiados', redirectTo: 'filiados/lista' },
+      {
+        path: 'filiados', component: FiliadosComponent,
+        children: [
+          { path: 'detalhe/:id', component: FiliadoDetalheComponent },
+          { path: 'detalhe', component: FiliadoDetalheComponent },
+          { path: 'lista', component: FiliadoListaComponent }
+        ]
+      },
     ]
   },
 
@@ -55,7 +63,6 @@ const routes: Routes = [
     path: 'user', component: UserComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'registration', component: RegistrationComponent },
     ]
   },
 

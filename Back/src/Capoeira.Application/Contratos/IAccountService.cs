@@ -9,7 +9,6 @@ namespace Capoeira.Application.Contratos
         Task<bool> UserExists(string userName);
         Task<UserUpdateDto> GetUserByUserNameAsync(string userName);
         Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password);
-        Task<UserUpdateDto> CreateAccountAsync(UserDto userDto);
         Task<UserUpdateDto> UpdateAccount(UserUpdateDto userUpdateDto);
     }
 }

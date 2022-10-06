@@ -2,7 +2,6 @@
 using Capoeira.Persistence.Contextos;
 using Capoeira.Persistence.Contratos;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,6 +28,15 @@ namespace Capoeira.Persistence
         public async Task<Mestre[]> GetAllMestresHomeAsync()
         {
             IQueryable<Mestre> query = _context.Mestres;
+
+            query = query.AsNoTracking()
+                .OrderBy(e => e.Id);
+
+            return await query.ToArrayAsync();
+        }
+        public async Task<Filiado[]> GetAllFiliadosHomeAsync()
+        {
+            IQueryable<Filiado> query = _context.Filiados;
 
             query = query.AsNoTracking()
                 .OrderBy(e => e.Id);
