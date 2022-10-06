@@ -1,3 +1,4 @@
+import { Filiado } from './../models/Filiado';
 import { Mestre } from './../models/Mestre';
 import { environment } from 'src/environments/environment.prod';
 import { Injectable } from '@angular/core';
@@ -19,5 +20,9 @@ export class HomeService {
 
   public getMestres(): Observable<Mestre[]>{
     return this.http.get<Mestre[]>(`${this.baseURL}/mestres`);
+  }
+
+  public getFiliados(): Observable<Filiado[]>{
+    return this.http.get<Filiado[]>(`${this.baseURL}/filiados`);
   }
 }

@@ -7,5 +7,6 @@ namespace Capoeira.Application.Contratos
     {
         Task<EventoDto[]> GetEventosHomeAsync();
         Task<MestreDto[]> GetMestresHomeAsync();
+        Task<FiliadoDto[]> GetFiliadosHomeAsync();
     }
 }

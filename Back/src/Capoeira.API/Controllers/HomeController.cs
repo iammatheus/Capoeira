@@ -50,5 +50,22 @@ namespace Capoeira.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar recuperar mestres. Erro: {ex.Message}");
             }
         }
+
+        [HttpGet]
+        [Route("filiados")]
+        public async Task<IActionResult> GetFiliados()
+        {
+            try
+            {
+                var filiados = await _homeService.GetFiliadosHomeAsync();
+                if (filiados == null) return NoContent();
+
+                return Ok(filiados);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar carregar filiados. Erro: {ex.Message}");
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { Filiado } from './../../models/Filiado';
 import { Mestre } from './../../models/Mestre';
 import { HomeService } from './../../services/home.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   public eventos: Evento[] = [];
   public mestres: Mestre[] = [];
+  public filiados: Filiado[] = [];
   thumbsSwiper: any;
 
   constructor(
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.carregaEventos();
     this.carregaMestres();
+    this.carregaFiliados();
   }
 
   public mostraImagem(imagemURL: string): string {
@@ -60,6 +63,21 @@ export class HomeComponent implements OnInit {
      error => {
       this.spinner.hide();
       this.toastr.error('Erro ao carregar os mestres.', 'Erro!')
+      console.error(error);
+    },
+    () => this.spinner.hide()
+    )
+  }
+
+  public carregaFiliados(): void {
+    this.spinner.show();
+    this.homeService.getFiliados()
+    .subscribe((filiados: Filiado[])=> {
+      this.filiados = filiados;
+     },
+     error => {
+      this.spinner.hide();
+      this.toastr.error('Erro ao carregar os filiados.', 'Erro!')
       console.error(error);
     },
     () => this.spinner.hide()

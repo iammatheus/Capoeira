@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
 using Capoeira.Application.Contratos;
 using Capoeira.Application.Dtos;
-using Capoeira.Domain;
 using Capoeira.Persistence.Contratos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Capoeira.Application
@@ -49,6 +45,22 @@ namespace Capoeira.Application
                 if (mestres == null) return null;
 
                 var resultado = _mapper.Map<MestreDto[]>(mestres);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public async Task<FiliadoDto[]> GetFiliadosHomeAsync()
+        {
+            try
+            {
+                var filiados = await _homePersist.GetAllFiliadosHomeAsync();
+                if (filiados == null) return null;
+
+                var resultado = _mapper.Map<FiliadoDto[]>(filiados);
 
                 return resultado;
             }
