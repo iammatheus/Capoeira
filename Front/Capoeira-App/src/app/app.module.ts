@@ -48,6 +48,8 @@ import { FiliadoDetalheComponent } from './components/filiados/filiado-detalhe/f
 import { FiliadoListaComponent } from './components/filiados/filiado-lista/filiado-lista.component';
 import { FiliadoService } from './services/filiado.service';
 
+import { ImgurApiService } from './services/imgur-api-service.service';
+
 defineLocale('pt-br', ptBrLocale);
 @NgModule({
   declarations: [
@@ -99,6 +101,7 @@ defineLocale('pt-br', ptBrLocale);
     AccountService,
     MestreService,
     FiliadoService,
+    ImgurApiService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
