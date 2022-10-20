@@ -1,4 +1,3 @@
-
 <div class="card rounded shadow-sm p-3 container">
   <div class="d-flex">
     <div class="flex-fill pr-3">
@@ -9,8 +8,27 @@
           placeholder="Filtrar por nome"
           (input)="filtrarMestres($event.target)">
       </div>
+      <div class="d-flex">
+        <div class="form-check mr-3">
+          <input class="form-check-input pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked (click)="carregarMestres()">
+          <label class="form-check-label pointer" for="flexRadioDefault1">
+            Todos
+          </label>
+        </div>
+        <div class="form-check mr-3">
+          <input class="form-check-input pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="carregarMestres('DN')">
+          <label class="form-check-label pointer" for="flexRadioDefault2">
+            Diretoria de Núcleos
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (click)="carregarMestres('DE')">
+          <label class="form-check-label pointer" for="flexRadioDefault3">
+            Diretoria Executiva
+          </label>
+        </div>
+      </div>
     </div>
-
     <div>
       <a class="d-flex btn btn-outline-primary" routerLink="/mestres/detalhe">
         <i class="fa fa-plus-circle my-1"></i>
@@ -28,6 +46,7 @@
           </button>
         </th>
         <th>#</th>
+        <th>Tipo</th>
         <th>Nome</th>
         <th>Descrição</th>
         <th>Opções</th>
@@ -46,8 +65,9 @@
             [style.margin.px]="margemImg">
         </td>
         <td>{{ mestre.id }}</td>
+        <td>{{ mestre.tipo == "DE" ? 'Diretoria Executiva' : 'Diretoria de Núcleos'}}</td>
         <td>{{ mestre.nome }}</td>
-        <td>{{ mestre.descricao }}</td>
+        <td style="width: 800px">{{ mestre.descricao }}</td>
         <td>
           <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="openModal($event, template, mestre.id)">
             <i class="fa fa-trash"></i>

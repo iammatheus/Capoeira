@@ -86,6 +86,7 @@ export class MestreDetalheComponent implements OnInit {
 
   public validation(): void {
     this.form = this.fb.group({
+      tipo: ['', [Validators.minLength(2), Validators.maxLength(2)]],
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       descricao: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(500)]],
       imagemUrl: ['']

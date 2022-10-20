@@ -21,7 +21,7 @@ namespace Capoeira.Persistence
             IQueryable<Mestre> query = _context.Mestres;
 
             query = query.AsNoTracking()
-                .Where(e => e.Nome.ToLower().Contains(pageParams.Term.ToLower()) &&
+                .Where(e => e.Nome.ToLower().Contains(pageParams.Term.ToLower()) || e.Tipo.Contains(pageParams.Term) &&
                              e.UserId == userId).OrderBy(e => e.Id);
 
             return await PageList<Mestre>.CreateAsync(query, pageParams.PageNumber, pageParams.pageSize);

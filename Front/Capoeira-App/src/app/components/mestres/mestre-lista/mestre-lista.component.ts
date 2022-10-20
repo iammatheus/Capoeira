@@ -20,11 +20,13 @@ export class MestreListaComponent implements OnInit {
   modalRef?: BsModalRef;
 
   public mestres: Mestre[] = [];
+  public mestresPorTipo: Mestre[] = [];
   public mestreId = 0;
   public largImg = 100;
   public altImg = 75;
   public margemImg = 2;
   public exibirImg = true;
+  public tipo: string;
   public pagination = {} as Pagination;
 
   termoBuscaChanged: Subject<string> = new Subject<string>();
@@ -52,13 +54,14 @@ export class MestreListaComponent implements OnInit {
       : 'assets/img/sem-imagem.png';
   }
 
-  public carregarMestres(): void {
+  public carregarMestres(tipo?: string): void {
     this.spinner.show();
 
-    this.mestreService.getMestres(this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.mestreService.getMestres(this.pagination.currentPage, this.pagination.itemsPerPage, tipo)
       .subscribe((res: PaginatedResult<Mestre[]>) => {
         this.mestres = res.result;
         this.pagination = res.pagination;
+        this.tipo = tipo;
       },
         error => {
           this.spinner.hide();
@@ -131,7 +134,7 @@ export class MestreListaComponent implements OnInit {
 
   public pageChanged($event: any): void {
     this.pagination.currentPage = $event.page;
-    this.carregarMestres();
+    this.carregarMestres(this.tipo)
   }
 
 }

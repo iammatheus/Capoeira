@@ -58,11 +58,11 @@ export class PerfilComponent implements OnInit {
       (userReturn: UserUpdate) => {
         this.userUpdate = userReturn;
         this.form.patchValue(this.userUpdate);
-        this.toastr.success('Usuário carregado.', 'sucsess')
+        this.toastr.success('Usuário carregado.', 'Sucesso!')
       },
       (error) => {
         console.error(error);
-        this.toastr.error('Usuário não carregado', 'error');
+        this.toastr.error('Usuário não carregado.', 'Erro!');
         this.router.navigate(['/dashboard']);
       },
       () => this.spinner.hide(),
