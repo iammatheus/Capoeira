@@ -29,6 +29,7 @@ namespace Capoeira.API.Controllers
             _mestreService = mestreService;
     
         }
+
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PageParams pageParams)
         {
@@ -61,7 +62,7 @@ namespace Capoeira.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao tentar recuperar mestres. Erro: {ex.Message}");
             }
         }
-    
+
         [HttpPost]
         public async Task<IActionResult> Post(MestreDto model)
         {

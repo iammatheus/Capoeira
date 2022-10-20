@@ -25,7 +25,6 @@ namespace Capoeira.Application
             _mestrePersist = mestrePersist;
             _mapper = mapper;
         }
-
         public async Task<MestreDto> AddMestres(int userId, MestreDto model)
         {
             try
@@ -89,7 +88,6 @@ namespace Capoeira.Application
                 throw new Exception(ex.Message);
             }
         }
-
         public async Task<PageList<MestreDto>> GetAllMestresAsync(int userId, PageParams pageParams)
         {
             try
@@ -111,7 +109,6 @@ namespace Capoeira.Application
                 throw new Exception(ex.Message);
             }
         }
-
         public async Task<MestreDto> GetMestreByIdAsync(int userId, int eventoId)
         {
             try

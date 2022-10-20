@@ -16,6 +16,9 @@ namespace Capoeira.Application.Dtos
         [RegularExpression(@".*\.(gif|jpe?g|bmp|png)$", ErrorMessage = "Imagem inválida. Experimente formatos: gif, jpg, jpeg, bmp ou png.")]
         public string ImagemUrl { get; set; }
 
+        [StringLength(2, MinimumLength = 2, ErrorMessage = "Erro ao inserir o tipo.")]
+        public string Tipo { get; set; }
+
         public int UserId { get; set; }
         public UserDto UserDto { get; set; }
     }

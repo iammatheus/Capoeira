@@ -70,8 +70,8 @@
     margin-top: 20px;
     padding: 0;
   }
-  .swiper-slide-2{
-    flex-direction: column;
+  .swiper-slide-2, .flex-row-reverse{
+    flex-direction: column !important;
   }
   .img-mestre{
     width: 60%;

@@ -3,14 +3,16 @@ using System;
 using Capoeira.Persistence.Contextos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Capoeira.Persistence.Migrations
 {
     [DbContext(typeof(CapoeiraContext))]
-    partial class CapoeiraContextModelSnapshot : ModelSnapshot
+    [Migration("20221012231510_TipoInMestres")]
+    partial class TipoInMestres
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

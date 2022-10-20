@@ -18,8 +18,11 @@ export class HomeComponent implements OnInit {
 
   public eventos: Evento[] = [];
   public mestres: Mestre[] = [];
+  public mestresDN: Mestre[] = [];
+  public mestresDE: Mestre[] = [];
   public filiados: Filiado[] = [];
   thumbsSwiper: any;
+  tipo: string;
 
   constructor(
     private homeService: HomeService,
@@ -59,6 +62,12 @@ export class HomeComponent implements OnInit {
     this.homeService.getMestres()
     .subscribe((mestres: Mestre[])=> {
       this.mestres = mestres;
+      mestres.forEach((value, index) => {
+        if(value.tipo === 'DN') this.mestresDN[index] = value;
+        else this.mestresDE[index] = value;
+      })
+      this.mestresDN = this.mestresDN.filter(i => {return i});
+      this.mestresDE = this.mestresDE.filter(i => {return i});
      },
      error => {
       this.spinner.hide();
