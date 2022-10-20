@@ -39,6 +39,8 @@
               style="display: none">
           </div>
         </div>
+        <input type="file" (change)="onChange($event)" class="form-control is-invalid" placeholder=""
+              >
         <div class="card profile-card-2">
           <div class="card-img-block">
             <img class="image" [src]="imagemURL" class="img-fluid" (click)="file.click()" alt="Card image cap"

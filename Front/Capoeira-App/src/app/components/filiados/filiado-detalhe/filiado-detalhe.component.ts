@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FiliadoService } from '../../../services/filiado.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-
+import { ImgurApiService } from '../../../services/imgur-api-service.service';
 @Component({
   selector: 'app-filiado-detalhe',
   templateUrl: './filiado-detalhe.component.html',
@@ -48,9 +48,15 @@ export class FiliadoDetalheComponent implements OnInit {
     private filiadoService: FiliadoService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private imgurService: ImgurApiService
   ) {
     this.localeService.use('pt-br')
+  }
+
+  onChange(file: any) {
+    this.imgurService.upload(file.target.files[0])
+      .subscribe(res => console.log(res));
   }
 
   public carregarFiliado(): void {
